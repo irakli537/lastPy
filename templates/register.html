@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}
+TechVerse - Register
+{% endblock %}
+
+{% block content %}
+<div class="container-sm text-center my-5" style="background-color: white; height=100%">
+    {% for errors in form.errors.values() %}
+    <div class="alert alert-danger">
+        {{ errors[0] }}
+    </div>
+    {% endfor %}
+    <h3> Welcome To TechVerse </h3>
+    <h6>Authorization Page</h6>
+    <hr>
+    <form method="POST"  action="{{ url_for('register') }} " class="p-5">
+        {{ form.hidden_tag() }}
+        <div class="row">
+            {{form.email(class="form-control my-2" , placeholder=form.email.label.text)}}
+        </div>
+        <div class="row">
+            {{form.username(class="form-control my-2" , placeholder=form.username.label.text)}}
+        </div>
+        <div class="row">
+            {{form.password(class="form-control my-2" , placeholder=form.password.label.text)}}
+        </div>
+        <div class="row">
+            {{form.repeat_password(class="form-control my-2" , placeholder=form.repeat_password.label.text)}}
+        </div>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="alert alert-danger">
+                {% for category, message in messages %}
+                    <div class= "{{ category }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+        <div class="row">
+            {{ form.register(class="btn btn-primary")}}
+        </div>
+    </form>
+    <br>
+    <hr>
+
+</div>
+{% endblock %}
+

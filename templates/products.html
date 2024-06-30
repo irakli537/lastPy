@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}
+View Products
+{% endblock %}
+
+{% block content %}
+
+<div class="row align-items-center">
+    <div class="col-md-4" style="text-align: left">
+        <h6 class="margin">Product Code: {{ product['id'] }}</h6>
+        <hr>
+        <img src="/static/{{ product['image'] }}" class="img-fluid">
+        <hr>
+    </div>
+    <div class="col-md-5">
+        <h5>Seller - {{ product['user_nick'] }}</h5>
+        <h2>{{ product['price'] }}₾</h2>
+        <hr>
+        <h4>{{ product['name'] }}</h4>
+        <a class="btn btn-danger" href="#">Product Out Of Stock</a>
+    </div>
+</div>
+<form method="POST" class="p-5">
+    {{ form.hidden_tag() }}
+    <div class="row">
+        {{form.comment(class="form-control my-2" , placeholder=form.comment.label.text)}}
+    </div>
+    <div class="row">
+        {{form.submit(class="btn btn-primary")}}
+    </div>
+</form>
+<div style="text-align: left;
+Border:1px solid grey" class="comment-box">
+    {% for comment in comment %}
+    <h6>{{ comment ['commenter'] }}</h6>
+    {{ comment ['text'] }}
+    {% if current_user.role == "Admin" %}
+    <a href="/delete_comment/{{ comment['id'] }} ">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill"
+         viewBox="0 0 16 16">
+        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+    </svg>
+    {% endif %}
+    <br> <br>
+</a>
+    {% endfor %}
+
+</div>
+{% endblock %}

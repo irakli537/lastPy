@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+    <div class="container">
+        <a class="navbar-brand" href="https://www.tbcbank.ge/web/ka">
+            <img src="/static/tbcl.png" alt="Bootstrap" width="150" height="35">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>x
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Products</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/">Support</a></li>
+                        <li><a class="dropdown-item" href="/">Subscription</a></li>
+                    </ul>
+                </li>
+                {% if current_user.role == "Admin" %}
+                 <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/registered_users">Members</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link disabled" aria-disabled="true">Coming Soon!</a>
+                </li>
+                {% endif %}
+                {% if current_user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/logout">Log-Out</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/login">Log-In</a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/register">Sign-Up/Register</a>
+                </li>
+                {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/add_products">Upload Products</a>
+                </li>
+            </ul>
+
+            <form class="d-flex btn-group" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            </form>
+
+
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+ONLY OWNER.../USERS
+{% endblock %}
+
+
+{% block content %}
+<h4>UsersINFO/DeleteUsers Owner Role Required</h4> <br>
+<div class="row">
+    {% for user in registered_users %}
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Username:{{ user['username'] }}</h5>
+                <h5 class="card-title">Role:{{ user['role'] }}</h5>
+                <h5 class="card-text">Password:{{ user['password'] }}</h5>
+                <a class="btn btn-danger" href="/delete_user/{{ user['id'] }} ">Delete User</a>
+                <a class="btn btn-warning" href="/edit_user/{{ user['id'] }} ">Edit User</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

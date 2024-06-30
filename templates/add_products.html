@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}
+Add-Products
+{% endblock %}
+
+{% block content %}
+<div class="container-sm text-center my-5" style="background-color: white; height=100%">
+    {% for errors in form.errors.values() %}
+    <div class="alert alert-danger">
+        {{ errors[0] }}
+    </div>
+    {% endfor %}
+    <h3> Add Your Products To The Site </h3>
+    <hr>
+    <form method="POST" class="p-5" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <div class="row">
+            {{form.image(class="form-control my-2")}}
+        </div>
+        <div class="row">
+            {{form.name(class="form-control my-2" , placeholder=form.name.label.text)}}
+        </div>
+        <div class="row">
+            {{form.price(class="form-control my-2" , placeholder=form.price.label.text)}}
+        </div>
+        <div class="row">
+            {{ form.add(class="btn btn-success")}}
+        </div>
+    </form>
+    <br>
+    <hr>
+
+</div>
+{% endblock %}
+

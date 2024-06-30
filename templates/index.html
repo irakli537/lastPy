@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+TechVerse - Main
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    {% for product in products %}
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <img src="/static/{{ product['image'] }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-title">{{ product['name'] }}</p>
+                <h5 class="card-text">{{ product['price'] }}₾</h5>
+                <a href="/products/{{ product['id'] }}" class="btn btn-primary">Buy/View</a>
+                {% if current_user.role == "Admin" %}
+                <a href="/delete_product/{{ product['id'] }}" class="btn btn-danger">Delete Product</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+{% endblock %}

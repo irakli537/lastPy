@@ -1,0 +1,50 @@
+.button {
+  background-color:#04AA6D;
+  border: none;
+  color: white;
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  border-radius:12px;
+}
+.button1 {
+  background-color: white; /* Green */
+  border: none;
+  color: white ;
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  border-radius:12px
+}
+
+
+
+.my-background{
+background-color:white;
+}
+.my-background1{
+background-color:#d0def5; height:100%;
+}
+
+.margin{
+margin-left: 3em;
+margin-top: 1em
+}
+
+.bord{
+
+Border:1px solid grey
+}
+
+.comment-box {
+    border: 1px solid #ccc;  /* Border color */
+    border-radius: 15px;     /* Rounded corners */
+    padding: 10px;           /* Space inside the border */
+    margin-bottom: 10px;     /* Space between comment boxes */
+    background-color: #f9f9f9;  /* Background color of the comment box */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Optional: Add a slight shadow for better visual appearance */
+}

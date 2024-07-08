@@ -103,7 +103,8 @@ def product():
         new_product = Product(user_nick=current_user.username, name=form.name.data, price=form.price.data)
         if form.image.data:
             image = form.image.data
-            image.save(f"{app.root_path}\static\{image.filename}")
+            directory = path.join(app.root_path, "static", form.img.data.filename)
+image.save(directory)
             new_product.image = image.filename
         db.session.add(new_product)
         db.session.commit()

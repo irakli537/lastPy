@@ -104,7 +104,7 @@ def product():
         if form.image.data:
             image = form.image.data
             directory = path.join(app.root_path, "static", form.img.data.filename)
-image.save(directory)
+            image.save(directory)
             new_product.image = image.filename
         db.session.add(new_product)
         db.session.commit()

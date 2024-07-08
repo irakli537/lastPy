@@ -3,6 +3,7 @@ from forms import RegisterForm, LoginForm, EditUserForm, UploadProductForm, Comm
 from models import Product, User, Comments
 from ext import app, db
 from flask_login import login_user, logout_user, current_user, login_required
+from os import path
 
 @app.route("/")
 def index():

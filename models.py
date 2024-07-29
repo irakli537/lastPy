@@ -1,6 +1,6 @@
 from ext import db, login_manager
 from flask_login import UserMixin
-from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.security import check_password_hash
 
 
 class Product(db.Model):
@@ -28,7 +28,7 @@ class User(db.Model, UserMixin):
 
     def __init__(self, username, password, role="Guest"):
         self.username = username
-        self.password = generate_password_hash(password)
+        self.password = password
         self.role = role
 
     def check_password(self, password):
